@@ -1,0 +1,24 @@
+[package]
+name = "gatekeeper"
+version = "0.1.0"
+edition = "2021"
+description = "Gatekeeper: policy registry, shared blocklist and enforcing vault for AI agent payments on NEAR"
+license = "MIT"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+near-sdk = "5"
+
+[dev-dependencies]
+# Lets `cargo test` compile near-sdk in unit-testing mode (near-sdk 5 blocks
+# plain cargo builds of contracts; the WASM build uses `cargo near build`).
+near-sdk = { version = "5", features = ["unit-testing"] }
+
+[profile.release]
+codegen-units = 1
+opt-level = "z"
+lto = true
+debug = false
+panic = "abort"
