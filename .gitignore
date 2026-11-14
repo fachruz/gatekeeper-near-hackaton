@@ -1,0 +1,19 @@
+# Secrets — never commit. Keys live in .env only.
+.env
+.env.*
+!.env.example
+*.seed
+neardev/
+
+# Rust
+contract/target/
+
+# Node
+agent/node_modules/
+agent/dist/
+agent/.gatekeeper/
+
+# Misc
+.DS_Store
+*.log
+!demo/attack-log.txt
